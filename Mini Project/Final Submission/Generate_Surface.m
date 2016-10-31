@@ -1,7 +1,7 @@
 figure(2);
 V = 100000*ones(size(Act));
 gam = .9;
-%filename = ['Value_growth' num2str(i) '.gif'];
+filename = ['Value_growth' num2str(i) '.gif'];
 
 changed = 1;
 i_V = 1;
@@ -52,14 +52,14 @@ while changed == 1
     title(['Value after ' num2str(i_V) ' iterations.'])
     axis([0 10 0 10 -200 210000])
     view(i_V*3,30);
-    %frame = getframe(2);
-    %im = frame2im(frame);
-    %[imind,cm] = rgb2ind(im,256);
-    %if i_V == 1;
-    %    imwrite(imind,cm,filename,'gif', 'Loopcount',inf,'DelayTime',.1);
-    %else
-    %    imwrite(imind,cm,filename,'gif','WriteMode','append','DelayTime',.1);
-    %end
+    frame = getframe(2);
+    im = frame2im(frame);
+    [imind,cm] = rgb2ind(im,256);
+    if i_V == 1;
+        imwrite(imind,cm,filename,'gif', 'Loopcount',inf,'DelayTime',.1);
+    else
+        imwrite(imind,cm,filename,'gif','WriteMode','append','DelayTime',.1);
+    end
     i_V = i_V+1;
 end
 

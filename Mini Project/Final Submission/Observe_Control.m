@@ -39,7 +39,7 @@ X_hat(:,1) = [0;1;0;0;1;0;0];
 y_hat(:,1) = C*X_hat;
 u(:,1) = [0;0];
 
-%filename = ['Observer_Avoidance'  '.gif'];
+filename = ['Observer_Avoidance'  '.gif'];
 i_move = 1;
 figure(4)
 axis([0,10,0,10])
@@ -71,15 +71,15 @@ for i = 2:length(t)
     hold on
     h(2) = plot(X(2,:),X(5,:),'--','MarkerFaceColor', 'red');
     hold on
-    %frame = getframe(3);
-    %    im = frame2im(frame);
-    %   [imind,cm] = rgb2ind(im,256);
-    %   if i_move == 1;
-    %        imwrite(imind,cm,filename,'gif', 'Loopcount',inf,'DelayTime',.1);
-    %    else
-    %        imwrite(imind,cm,filename,'gif','WriteMode','append','DelayTime',.1);
-    %    end
-    %    i_move = i_move+1;
+    frame = getframe(3);
+        im = frame2im(frame);
+       [imind,cm] = rgb2ind(im,256);
+       if i_move == 1;
+            imwrite(imind,cm,filename,'gif', 'Loopcount',inf,'DelayTime',.1);
+        else
+            imwrite(imind,cm,filename,'gif','WriteMode','append','DelayTime',.1);
+        end
+        i_move = i_move+1;
 end
 
 %figure;

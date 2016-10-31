@@ -37,15 +37,15 @@ for i = 1:length(x_agent)
             stop_mov = 1;
         end
         
-        %frame = getframe(figure_number);
-        %im = frame2im(frame);
-        %[imind,cm] = rgb2ind(im,256);
-        %if i_move == 1;
-        %    imwrite(imind,cm,filename,'gif', 'Loopcount',inf,'DelayTime',.1);
-        %else
-        %    imwrite(imind,cm,filename,'gif','WriteMode','append','DelayTime',.1);
-        %end
-        %i_move = i_move+1;
+        frame = getframe(3);
+        im = frame2im(frame);
+        [imind,cm] = rgb2ind(im,256);
+        if i_move == 1;
+            imwrite(imind,cm,filename,'gif', 'Loopcount',inf,'DelayTime',.1);
+        else
+            imwrite(imind,cm,filename,'gif','WriteMode','append','DelayTime',.1);
+        end
+        i_move = i_move+1;
         
         
         [i_x,i_y]= xy_to_indices(x_agent(i),y_agent(i));
